@@ -1,0 +1,30 @@
+Windows: get " get git bash"
+open dir = open .
+
+command:
+ls -all
+git commit
+git init (to make folder a git repo)
+	
+	need url for clone
+git clone "github url"
+git status (need to cd to dir)
+git commit -a (-a is all)
+git commit -a -m "Adding file" (-m for message)
+git config --global user.name "quanzt"
+git config --global user.email quanzt@gmail.command
+git config --list
+git log -2 (show the last two)
+
+To get out of editor type ":" and then "q"
+
+git remote -v
+git push origin master ( origin can be replace with github url: https:/github.com/quanzt/Crypto-Alert.git)
+
+git add new\ 1.txt
+git add .
+
+	need to add remote on github
+git remote add origin "url"
+git push origin master ( use it to update github from local)
+git pull origin master ( use it to update local from github)
