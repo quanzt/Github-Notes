@@ -21,8 +21,8 @@ To get out of editor type ":" and then "q"
 git remote -v
 git push origin master ( origin can be replace with github url: https:/github.com/quanzt/Crypto-Alert.git)
 
-git add new\ 1.txt
-git add .
+git add new\ 1.txt ( add only one file )
+git add . ( to add everything )
 
 	need to add remote on github
 git remote add origin "url"
