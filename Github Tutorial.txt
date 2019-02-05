@@ -12,7 +12,7 @@ git status (need to cd to dir)
 git commit -a (-a is all)
 git commit -a -m "Adding file" (-m for message)
 git config --global user.name "quanzt"
-git config --global user.email quanzt@gmail.command
+git config --global user.email quanzt@gmail.com
 git config --list
 git log -2 (show the last two)
 
