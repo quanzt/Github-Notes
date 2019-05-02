@@ -28,3 +28,9 @@ git add . ( to add everything )
 git remote add origin "url"
 git push origin master ( use it to update github from local)
 git pull origin master ( use it to update local from github)
+
+// make branch "source"
+git branch source
+
+//check how many branch
+git branch
