@@ -34,3 +34,6 @@ git branch source
 
 //check how many branch
 git branch
+
+//switch to branche issue17
+git checkout issue17
