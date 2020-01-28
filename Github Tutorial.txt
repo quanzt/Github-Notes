@@ -41,3 +41,8 @@ git checkout issue17
 //Exclude files from git without committing changes to .gitignore
 "My co-worker pointed me to the .git/info/exclude file which, much like a .gitignore file, allows you to ignore files from being staged. This keeps things nice and clean, and the best part is that you don’t commit anything in the .git/ directory, so it’s like your own personal .gitignore that no one else can see or touch!"
 https://medium.com/@dave_lunny/exclude-files-from-git-without-committing-changes-to-gitignore-986fa712e78d
+
+
+//https://git-scm.com/book/en/v2/Git-Branching-Remote-Branches
+git push --set-upstream origin BRANCHNAME
+
