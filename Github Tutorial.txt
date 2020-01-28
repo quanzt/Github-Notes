@@ -43,6 +43,21 @@ git checkout issue17
 https://medium.com/@dave_lunny/exclude-files-from-git-without-committing-changes-to-gitignore-986fa712e78d
 
 
-//https://git-scm.com/book/en/v2/Git-Branching-Remote-Branches
-git push --set-upstream origin BRANCHNAME
+//*******https://git-scm.com/book/en/v2/Git-Branching-Remote-Branches**********
+//to push your local serverfix branch to the awesomebranch branch on the remote project
+git push origin serverfix:awesomebranch 
 
+//create local branch from a remote-tracking branch
+git checkout -b <branch> <remote>/<branch>. 
+This is a common enough operation that Git provides the --track shorthand:
+$ git checkout --track origin/serverfix
+
+//If you already have a local branch and want to set it to a remote branch you just pulled down, or want to change the upstream branch //you’re tracking, you can use the -u or --set-upstream-to option to git branch to explicitly set it at any time.
+$ git branch -u origin/serverfix
+Branch serverfix set up to track remote branch serverfix from origin.
+
+//*Note
+Upstream shorthand
+When you have a tracking branch set up, you can reference its upstream branch with the @{upstream} or @{u} shorthand. So if you’re on the master branch and it’s tracking origin/master, you can say something like git merge @{u} instead of git merge origin/master if you wish.
+
+git push --set-upstream origin BRANCHNAME
