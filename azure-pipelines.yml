@@ -1,4 +1,7 @@
 # Starter pipeline
+- task: ApplicationSecurity@1
+  inputs:
+    scantype: 'static'
 - task: NuGetCommand@2
   inputs:
     command: 'restore'
