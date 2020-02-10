@@ -7,12 +7,18 @@
 trigger:
 - master
 
+#pool:
+#  vmImage: 'ubuntu-latest'
+
+#container: ubuntu:16.04
+
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'ubuntu-16.04'
 
 container: ubuntu:16.04
 
 steps:
+- script: printenv
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
