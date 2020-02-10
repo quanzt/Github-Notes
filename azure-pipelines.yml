@@ -24,7 +24,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-container: mcr.microsoft.com/windows/servercore:ltsc2019
+container: ubuntu:latest
 
 # pool:
 #   vmImage: 'macOS-latest'
