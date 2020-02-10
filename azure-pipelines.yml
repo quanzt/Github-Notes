@@ -24,7 +24,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-container: ubuntu:latest
+container: ubuntu
 
 # pool:
 #   vmImage: 'macOS-latest'
