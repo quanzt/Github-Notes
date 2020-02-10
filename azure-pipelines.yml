@@ -27,9 +27,14 @@ trigger:
 # container: ubuntu:16.04
 
 # pool:
-#   vmImage: 'windows-2019'
+#   vmImage: 'macOS-latest'
 
-# container: mcr.microsoft.com/windows/servercore:ltsc2019
+# container: 'macOS-latest'
+
+pool:
+  vmImage: 'windows-2019'
+
+container: mcr.microsoft.com/windows/servercore:ltsc2019
 
 # pool:
 #   vmImage: 'Ubuntu-16.04'
@@ -63,10 +68,7 @@ trigger:
 #         containerResource: u18
 
 #   container: $[ variables['containerResource'] ]
-pool:
-  vmImage: 'macOS-latest'
 
-# container: 'macOS-latest'
 
 steps:
   # - task: Docker@2
