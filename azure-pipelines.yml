@@ -8,9 +8,18 @@ trigger:
 - master
 
 pool:
- vmImage: 'ubuntu-18.04'
+  vmImage: 'ubuntu-16.04'
 
-container: ubuntu-18.04
+strategy:
+  matrix:
+    ubuntu14:
+      containerImage: ubuntu:14.04
+    ubuntu16:
+      containerImage: ubuntu:16.04
+    ubuntu18:
+      containerImage: ubuntu:18.04
+
+container: $[ variables['containerImage'] ]
 
 # pool:
 #   vmImage: 'ubuntu-16.04'
