@@ -7,19 +7,19 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'ubuntu-16.04'
+# pool:
+#   vmImage: 'ubuntu-16.04'
 
-strategy:
-  matrix:
-    ubuntu14:
-      containerImage: ubuntu:14.04
-    ubuntu16:
-      containerImage: ubuntu:16.04
-    ubuntu18:
-      containerImage: ubuntu:18.04
+# strategy:
+#   matrix:
+#     ubuntu14:
+#       containerImage: ubuntu:14.04
+#     ubuntu16:
+#       containerImage: ubuntu:16.04
+#     ubuntu18:
+#       containerImage: ubuntu:18.04
 
-container: $[ variables['containerImage'] ]
+# container: $[ variables['containerImage'] ]
 
 # pool:
 #   vmImage: 'ubuntu-16.04'
@@ -63,9 +63,19 @@ container: $[ variables['containerImage'] ]
 #         containerResource: u18
 
 #   container: $[ variables['containerResource'] ]
+pool:
+  vmImage: 'Ubuntu-16.04'
 
+variables:
+  imageName: 'pipelines-javascript-docker'
 
 steps:
+  - task: Docker@2
+    displayName: Build an image
+    inputs:
+      repository: $(imageName)
+      command: build
+      Dockerfile: app/Dockerfile
   # - task: Docker@2
   #   displayName: Build an image
   #   inputs:
