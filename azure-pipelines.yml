@@ -66,7 +66,7 @@ trigger:
 pool:
   vmImage: 'macOS-latest'
 
-container: 'macOS-latest'
+# container: 'macOS-latest'
 
 steps:
   # - task: Docker@2
