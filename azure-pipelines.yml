@@ -22,9 +22,9 @@ trigger:
 # container: $[ variables['containerImage'] ]
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'ubuntu-16.04'
 
-container: ubuntu
+container: ubuntu:16.04
 
 # pool:
 #   vmImage: 'macOS-latest'
