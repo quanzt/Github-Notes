@@ -1,15 +1,4 @@
-# Starter pipeline
-- task: ApplicationSecurity@1
-  inputs:
-    AppSecTestService: 'prod account'
-    applications: '2433ac8c-4059-e811-9423-002590ac753d'
-    scanname: 'quan1scan'
-    scantype: 'static'
-- task: NuGetCommand@2
-  inputs:
-    command: 'restore'
-    restoreSolution: '**/*.sln'
-    feedsToUse: 'select'
+
 
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
@@ -29,3 +18,16 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+
+# Starter pipeline
+- task: ApplicationSecurity@1
+  inputs:
+    AppSecTestService: 'prod account'
+    applications: '2433ac8c-4059-e811-9423-002590ac753d'
+    scanname: 'quan1scan'
+    scantype: 'static'
+- task: NuGetCommand@2
+  inputs:
+    command: 'restore'
+    restoreSolution: '**/*.sln'
+    feedsToUse: 'select'
