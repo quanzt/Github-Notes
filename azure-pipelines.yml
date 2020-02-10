@@ -24,7 +24,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-container: maven
+container: mcr.microsoft.com/windows/servercore:ltsc2019
 
 # pool:
 #   vmImage: 'macOS-latest'
@@ -100,3 +100,33 @@ steps:
       feedsToUse: 'select'
 
     
+
+
+#     # Maven
+# # Build your Java project and run tests with Apache Maven.
+# # Add steps that analyze code, save build artifacts, deploy, and more:
+# # https://docs.microsoft.com/azure/devops/pipelines/languages/java
+
+# trigger:
+# - master
+
+# pool:
+#   vmImage: 'ubuntu-latest'
+
+# container:  maven:3.6.1-jdk-11
+
+# steps:
+# - task: Bash@3
+#   inputs:
+#     targetType: 'inline'
+#     script: |
+#       # Write your commands here
+      
+#       ls -l
+
+# - task: ApplicationSecurity@1
+#   inputs:
+#     AppSecTestService: 'Karl'
+#     applications: '2433ac8c-4059-e811-9423-002590ac753d'
+#     scanname: 'TestPipeline'
+#     scantype: 'static'
