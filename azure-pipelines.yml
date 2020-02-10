@@ -17,10 +17,10 @@ trigger:
 
 # container: ubuntu:16.04
 
-pool:
-  vmImage: 'windows-2019'
+# pool:
+#   vmImage: 'windows-2019'
 
-container: mcr.microsoft.com/windows/servercore:ltsc2019
+# container: mcr.microsoft.com/windows/servercore:ltsc2019
 
 # pool:
 #   vmImage: 'Ubuntu-16.04'
@@ -28,31 +28,61 @@ container: mcr.microsoft.com/windows/servercore:ltsc2019
 # variables:
 #   imageName: 'pipelines-javascript-docker'
 
-steps:
-# - task: Docker@2
-#   displayName: Build an image
-#   inputs:
-#     repository: $(imageName)
-#     command: build
-#     Dockerfile: app/Dockerfile
-# - script: printenv
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+resources:
+  containers:
+  - container: u14
+    image: ubuntu:14.04
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+  - container: u16
+    image: ubuntu:16.04
 
-# Starter pipeline
-- task: ApplicationSecurity@1
-  inputs:
-    AppSecTestService: 'prod account'
-    applications: '2433ac8c-4059-e811-9423-002590ac753d'
-    scanname: 'quan1scan'
-    scantype: 'static'
-- task: NuGetCommand@2
-  inputs:
-    command: 'restore'
-    restoreSolution: '**/*.sln'
-    feedsToUse: 'select'
+  - container: u18
+    image: ubuntu:18.04
+
+jobs:
+- job: RunInContainer
+  pool:
+    vmImage: 'ubuntu-16.04'
+
+  strategy:
+    matrix:
+      ubuntu14:
+        containerResource: u14
+      ubuntu16:
+        containerResource: u16
+      ubuntu18:
+        containerResource: u18
+
+  container: $[ variables['containerResource'] ]
+
+
+  steps:
+  # - task: Docker@2
+  #   displayName: Build an image
+  #   inputs:
+  #     repository: $(imageName)
+  #     command: build
+  #     Dockerfile: app/Dockerfile
+  # - script: printenv
+  - script: echo Hello, world!
+    displayName: 'Run a one-line script'
+
+  - script: |
+      echo Add other tasks to build, test, and deploy your project.
+      echo See https://aka.ms/yaml
+    displayName: 'Run a multi-line script'
+
+  # Starter pipeline
+  - task: ApplicationSecurity@1
+    inputs:
+      AppSecTestService: 'prod account'
+      applications: '2433ac8c-4059-e811-9423-002590ac753d'
+      scanname: 'quan1scan'
+      scantype: 'static'
+  - task: NuGetCommand@2
+    inputs:
+      command: 'restore'
+      restoreSolution: '**/*.sln'
+      feedsToUse: 'select'
+
+    
