@@ -73,8 +73,8 @@ container: ubuntu:16.04
 
 steps:
   - script: |
-      sudo apt update
-      sudo apt -y upgrade
+      sudo apt-get update
+      sudo apt-get upgrade
       sudo apt install curl
       
       # curl https://www.google.com/
