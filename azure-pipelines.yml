@@ -72,6 +72,13 @@ container: ubuntu:16.04
 
 
 steps:
+  - script: |
+      sudo apt update
+      sudo apt -y upgrade
+      sudo apt install curl
+      
+      # curl https://www.google.com/
+
   - script: echo Hello, world!
     displayName: 'Run a one-line script'
 
@@ -82,6 +89,8 @@ steps:
 
   # - script: curl -O "https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux"
   
+
+
   - task: CmdLine@2
     inputs:
       script: |
