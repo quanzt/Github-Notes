@@ -30,7 +30,7 @@ steps:
   displayName: 'Install system dependencies'
 
 - script: |
-    curl -I https://www.google.com/
+    curl -O https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux
   
   # # sudo apt-get install -y python3 python3-pip
 
