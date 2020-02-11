@@ -75,9 +75,13 @@ steps:
       # curl https://www.google.com/
   - bash: |
       DOWNLOAD_URL="https://www.google.com/"      
-      INSTALL_DIR="/usr/local/bin"      
-      apt-get update
-      apt-get install curl
+      INSTALL_DIR="/usr/local/bin"
+      apt-get -qq update
+      apt-get -qq -y install curl
+      
+      # apt-get update
+      # apt-get install curl
+      
       curl https://www.google.com/ 
       
       # curl -o "$INSTALL_DIR/test1" -L --progress-bar $DOWNLOAD_URL      
