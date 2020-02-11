@@ -86,7 +86,7 @@ steps:
     inputs:
       targetType: 'inline'
       script: |
-        curl -I https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux
+        curl https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux
         # Write your commands here
         
         ls -l
