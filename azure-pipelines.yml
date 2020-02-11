@@ -82,9 +82,8 @@ steps:
 
   # - script: curl -O "https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux"
   
-  - task: Bash@3
+  - task: CmdLine@2
     inputs:
-      targetType: 'inline'
       script: |
         curl https://www.google.com/
         
@@ -118,12 +117,6 @@ steps:
   #     applications: '2433ac8c-4059-e811-9423-002590ac753d'
   #     scanname: 'quan1scan'
   #     scantype: 'static'
-  - task: NuGetCommand@2
-    inputs:
-      command: 'restore'
-      restoreSolution: '**/*.sln'
-      feedsToUse: 'select'
-
     
 
 
