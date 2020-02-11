@@ -24,8 +24,8 @@ container: tests
 steps:
 # - script: printenv
 - script: |  
-    sudo apt-get update 
-    sudo apt-get install curl
+    sudo apt-get -y update 
+    sudo apt-get -y install curl
   displayName: 'Install system dependencies'
   
   # # sudo apt-get install -y python3 python3-pip
