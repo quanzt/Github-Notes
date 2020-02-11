@@ -79,8 +79,17 @@ steps:
       echo Add other tasks to build, test, and deploy your project.
       echo See https://aka.ms/yaml
     displayName: 'Run a multi-line script'
-  - script: curl -O "https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux"
+
+  # - script: curl -O "https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux"
   
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        # Write your commands here
+        
+        ls -l
+
   # Bash
 # Run a Bash script on macOS, Linux, or Windows
   # - task: Bash@3
