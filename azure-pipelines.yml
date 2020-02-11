@@ -193,9 +193,10 @@ steps:
       
 #       ls -l
 
+
 - task: ApplicationSecurity@1
   inputs:
-    AppSecTestService: 'Karl'
+    AppSecTestService: 'prod account'
     applications: '2433ac8c-4059-e811-9423-002590ac753d'
-    scanname: 'TestPipeline'
+    scanname: '123test'
     scantype: 'static'
