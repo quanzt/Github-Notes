@@ -7,6 +7,25 @@
 trigger:
 - master
 
+
+pool:
+  vmImage: 'ubuntu-18.04'
+
+resources:
+  containers:
+  - container: tests
+    image: ubuntu:18.04
+    options: '-v /usr/bin/sudo:/usr/bin/sudo -v /usr/lib/sudo/libsudo_util.so.0:/usr/lib/sudo/libsudo_util.so.0 -v /usr/lib/sudo/sudoers.so:/usr/lib/sudo/sudoers.so -v /etc/sudoers:/etc/sudoers'
+
+container: tests
+
+steps:
+- script: |
+    sudo apt-get update
+    sudo apt-get install -y python3 python3-pip
+  displayName: 'Install system dependencies'
+
+
 # pool:
 #   vmImage: 'ubuntu-16.04'
 
@@ -21,10 +40,10 @@ trigger:
 
 # container: $[ variables['containerImage'] ]
 
-pool:
-  vmImage: 'ubuntu-16.04'
+# pool:
+#   vmImage: 'ubuntu-16.04'
 
-container: ubuntu:16.04
+# container: ubuntu:16.04
 
 # pool:
 #   vmImage: 'macOS-latest'
@@ -71,35 +90,35 @@ container: ubuntu:16.04
 
 
 
-steps:    
-      # curl https://www.google.com/
-  - bash: |
-      DOWNLOAD_URL="https://www.google.com/"      
-      INSTALL_DIR="/usr/local/bin"
-      apt-get -qq update
-        runAsRoot: true
-      apt-get -qq -y install curl
-        runAsRoot: true
+# steps:    
+#       # curl https://www.google.com/
+#   - bash: |
+#       DOWNLOAD_URL="https://www.google.com/"      
+#       INSTALL_DIR="/usr/local/bin"
+#       apt-get -qq update
+#         runAsRoot: true
+#       apt-get -qq -y install curl
+#         runAsRoot: true
 
       
-      # apt-get update
-      # apt-get install curl
-      #curl -o saclient.zip https://www.google.com/ 
+#       # apt-get update
+#       # apt-get install curl
+#       #curl -o saclient.zip https://www.google.com/ 
       
-      curl https://www.google.com/ 
+#       curl https://www.google.com/ 
       
-      # curl -o "$INSTALL_DIR/test1" -L --progress-bar $DOWNLOAD_URL      
-      # chmod +rx "$INSTALL_DIR/test1"
+#       # curl -o "$INSTALL_DIR/test1" -L --progress-bar $DOWNLOAD_URL      
+#       # chmod +rx "$INSTALL_DIR/test1"
       
-      # curl -sL https://www.google.com/ | bash
+#       # curl -sL https://www.google.com/ | bash
 
-  - script: echo Hello, world!
-    displayName: 'Run a one-line script'
+#   - script: echo Hello, world!
+#     displayName: 'Run a one-line script'
 
-  - script: |
-      echo Add other tasks to build, test, and deploy your project.
-      echo See https://aka.ms/yaml
-    displayName: 'Run a multi-line script'
+#   - script: |
+#       echo Add other tasks to build, test, and deploy your project.
+#       echo See https://aka.ms/yaml
+#     displayName: 'Run a multi-line script'
 
 
   # - script: curl -O "https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux"
