@@ -74,11 +74,12 @@ container: ubuntu:16.04
 steps:    
       # curl https://www.google.com/
   - bash: |
-      set -ex
       DOWNLOAD_URL="https://www.google.com/"      
       INSTALL_DIR="/usr/local/bin"
       apt-get -qq update
       apt-get -qq -y install curl
+        runAsRoot: true
+
       
       # apt-get update
       # apt-get install curl
@@ -97,6 +98,7 @@ steps:
       echo Add other tasks to build, test, and deploy your project.
       echo See https://aka.ms/yaml
     displayName: 'Run a multi-line script'
+
 
   # - script: curl -O "https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux"
   
