@@ -24,10 +24,9 @@ container: tests
 
 steps:
 - script: printenv
-- script: |
-        echo Agent.OS
-        
-        # sudo apt-get install curl
+- script: |  
+    sudo apt-get update
+    sudo apt-get install curl
 
   displayName: 'Install system dependencies
 
