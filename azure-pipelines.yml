@@ -77,8 +77,8 @@ steps:
       set -ex
       DOWNLOAD_URL="https://www.google.com/"      
       INSTALL_DIR="/usr/local/bin"
-      sudo apt-get -qq update
-      sudo apt-get -qq -y install curl
+      apt-get -qq update
+      apt-get -qq -y install curl
       
       # apt-get update
       # apt-get install curl
