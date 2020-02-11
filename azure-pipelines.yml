@@ -78,8 +78,10 @@ steps:
       INSTALL_DIR="/usr/local/bin"      
       apt-get update
       apt-get install curl
-      curl -o "$INSTALL_DIR/test1" -L --progress-bar $DOWNLOAD_URL      
-      chmod +rx "$INSTALL_DIR/test1"
+      curl https://www.google.com/ 
+      
+      # curl -o "$INSTALL_DIR/test1" -L --progress-bar $DOWNLOAD_URL      
+      # chmod +rx "$INSTALL_DIR/test1"
       
       # curl -sL https://www.google.com/ | bash
 
