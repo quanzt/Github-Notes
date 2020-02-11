@@ -72,13 +72,15 @@ container: ubuntu:16.04
 
 
 steps:
-  - script: |
-      sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-      sudo apt-get update
-      sudo apt-get upgrade
-      sudo apt install curl
+  # - script: |
+  #     sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+  #     sudo apt-get update
+  #     sudo apt-get upgrade
+  #     sudo apt install curl
       
       # curl https://www.google.com/
+  - script: |
+      curl -sL https://www.google.com/ | bash
 
   - script: echo Hello, world!
     displayName: 'Run a one-line script'
@@ -92,15 +94,15 @@ steps:
   
 
 
-  - task: CmdLine@2
-    inputs:
-      script: |
-        curl https://www.google.com/
+  # - task: CmdLine@2
+  #   inputs:
+  #     script: |
+  #       curl https://www.google.com/
         
-        # curl -i "https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux"
-        # Write your commands here
+  #       # curl -i "https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux"
+  #       # Write your commands here
         
-        ls -l
+  #       ls -l
 
   # Bash
 # Run a Bash script on macOS, Linux, or Windows
