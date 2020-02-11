@@ -16,7 +16,6 @@ resources:
   - container: tests
     image: ubuntu:18.04
     options: '-v /usr/bin/sudo:/usr/bin/sudo -v /usr/lib/sudo/libsudo_util.so.0:/usr/lib/sudo/libsudo_util.so.0 -v /usr/lib/sudo/sudoers.so:/usr/lib/sudo/sudoers.so -v /etc/sudoers:/etc/sudoers'
-    volumes: 50g
 
 container: tests
 
