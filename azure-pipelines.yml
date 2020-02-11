@@ -86,7 +86,9 @@ steps:
     inputs:
       targetType: 'inline'
       script: |
-        curl -i "https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux"
+        curl -i https://www.google.com/
+        
+        # curl -i "https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux"
         # Write your commands here
         
         ls -l
