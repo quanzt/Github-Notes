@@ -86,7 +86,7 @@ steps:
     inputs:
       targetType: 'inline'
       script: |
-        curl -i https://www.google.com/
+        curl -i "https://www.google.com/""
         
         # curl -i "https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux"
         # Write your commands here
@@ -112,12 +112,12 @@ steps:
 
 
   # Starter pipeline
-  - task: ApplicationSecurity@1
-    inputs:
-      AppSecTestService: 'prod account'
-      applications: '2433ac8c-4059-e811-9423-002590ac753d'
-      scanname: 'quan1scan'
-      scantype: 'static'
+  # - task: ApplicationSecurity@1
+  #   inputs:
+  #     AppSecTestService: 'prod account'
+  #     applications: '2433ac8c-4059-e811-9423-002590ac753d'
+  #     scanname: 'quan1scan'
+  #     scantype: 'static'
   - task: NuGetCommand@2
     inputs:
       command: 'restore'
