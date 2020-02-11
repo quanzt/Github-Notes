@@ -79,11 +79,12 @@ steps:
       apt-get -qq update
         runAsRoot: true
       apt-get -qq -y install curl
-        runAsRoot: true 
+        runAsRoot: true
 
       
       # apt-get update
       # apt-get install curl
+      #curl -o saclient.zip https://www.google.com/ 
       
       curl https://www.google.com/ 
       
