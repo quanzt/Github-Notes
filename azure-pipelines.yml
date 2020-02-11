@@ -77,8 +77,9 @@ steps:
       DOWNLOAD_URL="https://www.google.com/"      
       INSTALL_DIR="/usr/local/bin"
       apt-get -qq update
-      apt-get -qq -y install curl
         runAsRoot: true
+      apt-get -qq -y install curl
+        runAsRoot: true 
 
       
       # apt-get update
