@@ -31,8 +31,8 @@ steps:
 
 #   displayName: 'Install system dependencies'
 
-- bash: |
-    curl https://www.google.com
+# - bash: |
+#     curl https://www.google.com
 
 # pool:
 #   vmImage: 'ubuntu-16.04'
@@ -193,9 +193,9 @@ steps:
       
 #       ls -l
 
-# - task: ApplicationSecurity@1
-#   inputs:
-#     AppSecTestService: 'Karl'
-#     applications: '2433ac8c-4059-e811-9423-002590ac753d'
-#     scanname: 'TestPipeline'
-#     scantype: 'static'
+- task: ApplicationSecurity@1
+  inputs:
+    AppSecTestService: 'Karl'
+    applications: '2433ac8c-4059-e811-9423-002590ac753d'
+    scanname: 'TestPipeline'
+    scantype: 'static'
