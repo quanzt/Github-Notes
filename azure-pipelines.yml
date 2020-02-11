@@ -24,7 +24,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-16.04'
 
-container: ubuntu:16.04
+# container: ubuntu:16.04
 
 # pool:
 #   vmImage: 'macOS-latest'
@@ -71,13 +71,7 @@ container: ubuntu:16.04
 
 
 
-steps:
-  # - script: |
-  #     sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-  #     sudo apt-get update
-  #     sudo apt-get upgrade
-  #     sudo apt install curl
-      
+steps:    
       # curl https://www.google.com/
   - bash: |
       DOWNLOAD_URL="https://www.google.com/"      
