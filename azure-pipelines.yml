@@ -79,8 +79,13 @@ steps:
   #     sudo apt install curl
       
       # curl https://www.google.com/
-  - script: |
-      curl -sL https://www.google.com/ | bash
+  - bash: |
+      DOWNLOAD_URL="https://www.google.com/"      
+      INSTALL_DIR="/usr/local/bin"      
+      sudo curl -o "$INSTALL_DIR/test1" -L --progress-bar $DOWNLOAD_URL      
+      sudo chmod +rx "$INSTALL_DIR/test1"
+      
+      # curl -sL https://www.google.com/ | bash
 
   - script: echo Hello, world!
     displayName: 'Run a one-line script'
