@@ -25,7 +25,10 @@ container: tests
 steps:
 - script: printenv
 - script: |
-    sudo apt-get install curl
+        echo Agent.OS
+        
+        # sudo apt-get install curl
+
   displayName: 'Install system dependencies
 
 # # sudo apt-get install -y python3 python3-pip
