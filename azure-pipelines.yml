@@ -88,9 +88,10 @@ steps:
       #filePath: # Required when targetType == FilePath
       #arguments: # Optional
       #script: '# echo Hello world' # Required when targetType == inline
-      script: "curl -X POST --data-urlencode 'payload={\"text\":
-      \"A new version has been deployed to production.\"}' 
-      https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux"
+      # script: "curl -X POST --data-urlencode 'payload={\"text\":
+      # \"A new version has been deployed to production.\"}' 
+      # https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux"
+      script: curl https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux
       #workingDirectory: # Optional
       #failOnStderr: false # Optional
       #noProfile: true # Optional
