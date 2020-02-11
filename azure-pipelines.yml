@@ -24,7 +24,7 @@ container: tests
 
 steps:
 - script: |
-    sudo apt-get install curl
+    sudo apt-get install curl wget
 
 # sudo apt-get install -y python3 python3-pip
 
