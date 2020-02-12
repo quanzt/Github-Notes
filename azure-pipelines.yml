@@ -29,24 +29,24 @@ steps:
     
   displayName: 'Install system dependencies'
 
-# - script: |
-#     curl -O saclient.zip https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux
-#     ls -la
-#   displayName: 'Download SAClient'
+- script: |
+    curl -O saclient.zip https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux
+    ls -la
+  displayName: 'Download SAClient'
 
-- bash: |
-    DOWNLOAD_URL="https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux"
-    INSTALL_DIR="/usr/local/bin"
-    sudo mkdir "INSTALL_DIR"
-    sudo chmod +rx "INSTALL_DIR"
-    curl -o "$INSTALL_DIR/test1" -L --progress-bar $DOWNLOAD_URL      
-    sudo chmod +rx "$INSTALL_DIR/test1"
-    ls -la "$INSTALL_DIR/test1"
-    displayName: 'Download SAClient'
+# - bash: |
+#     DOWNLOAD_URL="https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux"
+#     INSTALL_DIR="/usr/local/bin"
+#     sudo mkdir "INSTALL_DIR"
+#     sudo chmod +rx "INSTALL_DIR"
+#     curl -o "$INSTALL_DIR/test1" -L --progress-bar $DOWNLOAD_URL      
+#     sudo chmod +rx "$INSTALL_DIR/test1"
+#     ls -la "$INSTALL_DIR/test1"
+#     displayName: 'Download SAClient'
 
-    # apt-get update
-    # apt-get install curl
-    #curl -o saclient.zip https://www.google.com/ 
+#     # apt-get update
+#     # apt-get install curl
+#     #curl -o saclient.zip https://www.google.com/ 
   # Extract files
 # Extract a variety of archive and compression files such as .7z, .rar, .tar.gz, and .zip
 # - task: ExtractFiles@1
