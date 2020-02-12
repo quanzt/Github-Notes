@@ -29,11 +29,36 @@ steps:
     
   displayName: 'Install system dependencies'
 
-- script: |
-    curl -O https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux
-    ls -la
-  displayName: 'Download SAClient'
+# - script: |
+#     curl -O saclient.zip https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux
+#     ls -la
+#   displayName: 'Download SAClient'
+
+- bash: |
+    DOWNLOAD_URL="https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux"
+    INSTALL_DIR="/usr/local/bin"
   
+    # apt-get update
+    # apt-get install curl
+    #curl -o saclient.zip https://www.google.com/ 
+    
+    curl -o "$INSTALL_DIR/test1" -L --progress-bar $DOWNLOAD_URL      
+    chmod +rx "$INSTALL_DIR/test1"
+    ls -la "$INSTALL_DIR/test1"
+    displayName: 'Download SAClient'
+
+
+  # Extract files
+# Extract a variety of archive and compression files such as .7z, .rar, .tar.gz, and .zip
+# - task: ExtractFiles@1
+#   inputs:
+#     #archiveFilePatterns: '*.zip' 
+#     destinationFolder: 
+#     #cleanDestinationFolder: true
+  
+
+
+
   # # sudo apt-get install -y python3 python3-pip
 
 # - bash: |
@@ -197,9 +222,9 @@ steps:
 #       # Write your commands here
       
 #       ls -l
-- task: ApplicationSecurity@1
-  inputs:
-    AppSecTestService: 'prod account'
-    applications: '2433ac8c-4059-e811-9423-002590ac753d'
-    scanname: '123test'
-    scantype: 'static'
+# - task: ApplicationSecurity@1
+#   inputs:
+#     AppSecTestService: 'prod account'
+#     applications: '2433ac8c-4059-e811-9423-002590ac753d'
+#     scanname: '123test'
+#     scantype: 'static'
