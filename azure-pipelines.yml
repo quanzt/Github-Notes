@@ -37,17 +37,16 @@ steps:
 - bash: |
     DOWNLOAD_URL="https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux"
     INSTALL_DIR="/usr/local/bin"
-  
-    # apt-get update
-    # apt-get install curl
-    #curl -o saclient.zip https://www.google.com/ 
-    
+    mkdir "INSTALL_DIR"
+    chmod +rx "INSTALL_DIR"
     curl -o "$INSTALL_DIR/test1" -L --progress-bar $DOWNLOAD_URL      
     chmod +rx "$INSTALL_DIR/test1"
     ls -la "$INSTALL_DIR/test1"
     displayName: 'Download SAClient'
 
-
+    # apt-get update
+    # apt-get install curl
+    #curl -o saclient.zip https://www.google.com/ 
   # Extract files
 # Extract a variety of archive and compression files such as .7z, .rar, .tar.gz, and .zip
 # - task: ExtractFiles@1
