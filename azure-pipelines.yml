@@ -30,7 +30,11 @@ steps:
   displayName: 'Install system dependencies'
 
 - script: |
-    curl https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux > saclient.zip 
+    
+    # curl https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux > saclient.zip 
+    
+    curl -o saclient.zip https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux    
+    unzip saclient.zip
     ls -la
   displayName: 'Download SAClient'
 
