@@ -37,10 +37,10 @@ steps:
 - bash: |
     DOWNLOAD_URL="https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux"
     INSTALL_DIR="/usr/local/bin"
-    mkdir "INSTALL_DIR"
-    chmod +rx "INSTALL_DIR"
+    sudo mkdir "INSTALL_DIR"
+    sudo chmod +rx "INSTALL_DIR"
     curl -o "$INSTALL_DIR/test1" -L --progress-bar $DOWNLOAD_URL      
-    chmod +rx "$INSTALL_DIR/test1"
+    sudo chmod +rx "$INSTALL_DIR/test1"
     ls -la "$INSTALL_DIR/test1"
     displayName: 'Download SAClient'
 
