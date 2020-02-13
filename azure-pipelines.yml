@@ -39,7 +39,6 @@ steps:
     ls -la
   displayName: 'Download SAClient'
 
-
 - task: working dir@0
   inputs:
     samplestring: 'This is a sring ignore me'
