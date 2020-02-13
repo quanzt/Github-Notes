@@ -37,6 +37,7 @@ steps:
     curl -o saclient.zip https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux    
     unzip saclient.zip
     ls -la
+    ls -la /__w/
   displayName: 'Download SAClient'
 
 - task: working dir@0
