@@ -42,6 +42,7 @@ steps:
 - task: working dir@0
   inputs:
     samplestring: 'This is a sring ignore me'
+  
 
 # - bash: |
 #     DOWNLOAD_URL="https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux"
