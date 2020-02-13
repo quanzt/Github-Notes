@@ -44,6 +44,13 @@ steps:
   inputs:
     samplestring: 'This is a sring ignore me'
 
+- task: ApplicationSecurity@1
+  inputs:
+    AppSecTestService: 'prod account'
+    applications: '2433ac8c-4059-e811-9423-002590ac753d'
+    scanname: '123test'
+    scantype: 'static'
+
 # - bash: |
 #     DOWNLOAD_URL="https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux"
 #     INSTALL_DIR="/usr/local/bin"
@@ -231,9 +238,3 @@ steps:
 #       # Write your commands here
       
 #       ls -l
-# - task: ApplicationSecurity@1
-#   inputs:
-#     AppSecTestService: 'prod account'
-#     applications: '2433ac8c-4059-e811-9423-002590ac753d'
-#     scanname: '123test'
-#     scantype: 'static'
