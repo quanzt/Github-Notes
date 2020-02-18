@@ -7,56 +7,58 @@
 trigger:
 - master
 
-jobs:
-- job: myJob
-  timeoutInMinutes: 360
+# jobs:
+# - job: myJob
+  
+
+pool:
+  vmImage: 'ubuntu-18.04'
+
+container: tests
 
   # pool:
-  #   vmImage: 'ubuntu-18.04'
+  #   vmImage: 'ubuntu-latest'
 
-  # resources:
-  #   containers:
-  #   - container: tests
-  #     image: ubuntu:18.04
-  #     options: '-v /usr/bin/sudo:/usr/bin/sudo -v /usr/lib/sudo/libsudo_util.so.0:/usr/lib/sudo/libsudo_util.so.0 -v /usr/lib/sudo/sudoers.so:/usr/lib/sudo/sudoers.so -v /etc/sudoers:/etc/sudoers'
+  # container:  'ubuntu:latest'
 
-  # container: tests
+ 
+resources:
+  containers:
+  - container: tests
+    image: ubuntu:18.04
+    options: '-v /usr/bin/sudo:/usr/bin/sudo -v /usr/lib/sudo/libsudo_util.so.0:/usr/lib/sudo/libsudo_util.so.0 -v /usr/lib/sudo/sudoers.so:/usr/lib/sudo/sudoers.so -v /etc/sudoers:/etc/sudoers'
+    timeoutInMinutes: 360 
 
-  pool:
-    vmImage: 'ubuntu-latest'
+steps:
+# - script: printenv
+- script: |  
+    sudo apt-get -y update 
+    sudo apt-get -y install curl
+    sudo apt-get install -y unzip
+    
+  displayName: 'Install system dependencies'
 
-  container:  'ubuntu:latest'
+- script: |
+    
+    # curl https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux > saclient.zip 
+    
+    curl -o saclient.zip https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux    
+    unzip saclient.zip
+    ls -la
+    ls -la /__w/
+  displayName: 'Download SAClient'
 
-  steps:
-  # - script: printenv
-  # - script: |  
-  #     sudo apt-get -y update 
-  #     sudo apt-get -y install curl
-  #     sudo apt-get install -y unzip
-      
-  #   displayName: 'Install system dependencies'
+- task: working dir@0
+  inputs:
+    samplestring: 'This is a sring ignore me'
 
-  # - script: |
-      
-  #     # curl https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux > saclient.zip 
-      
-  #     curl -o saclient.zip https://cloud.appscan.com/api/SCX/StaticAnalyzer/SAClientUtil?os=linux    
-  #     unzip saclient.zip
-  #     ls -la
-  #     ls -la /__w/
-  #   displayName: 'Download SAClient'
-
-  - task: working dir@0
-    inputs:
-      samplestring: 'This is a sring ignore me'
-
-  - task: ApplicationSecurity@1
-    inputs:
-      AppSecTestService: 'prod account'
-      applications: '2433ac8c-4059-e811-9423-002590ac753d'
-      scanname: 'scan20200218'
-      scantype: 'static'
-      email: true
+- task: ApplicationSecurity@1
+  inputs:
+    AppSecTestService: 'prod account'
+    applications: '2433ac8c-4059-e811-9423-002590ac753d'
+    scanname: 'scan20200218'
+    scantype: 'static'
+    email: true
 
 # - task: ApplicationSecurity@1
 #   inputs:
