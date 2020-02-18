@@ -11,27 +11,30 @@ jobs:
 - job: myJob
   timeoutInMinutes: 360
 
+  # pool:
+  #   vmImage: 'ubuntu-18.04'
+
+  # resources:
+  #   containers:
+  #   - container: tests
+  #     image: ubuntu:18.04
+  #     options: '-v /usr/bin/sudo:/usr/bin/sudo -v /usr/lib/sudo/libsudo_util.so.0:/usr/lib/sudo/libsudo_util.so.0 -v /usr/lib/sudo/sudoers.so:/usr/lib/sudo/sudoers.so -v /etc/sudoers:/etc/sudoers'
+
+  # container: tests
+
   pool:
-    vmImage: 'ubuntu-18.04'
+    vmImage: 'ubuntu-latest'
 
-  resources:
-    containers:
-    - container: tests
-      image: ubuntu:18.04
-      options: '-v /usr/bin/sudo:/usr/bin/sudo -v /usr/lib/sudo/libsudo_util.so.0:/usr/lib/sudo/libsudo_util.so.0 -v /usr/lib/sudo/sudoers.so:/usr/lib/sudo/sudoers.so -v /etc/sudoers:/etc/sudoers'
-
-  container: tests
-
-
+  container:  'ubuntu:latest'
 
   steps:
   # - script: printenv
-  - script: |  
-      sudo apt-get -y update 
-      sudo apt-get -y install curl
-      sudo apt-get install -y unzip
+  # - script: |  
+  #     sudo apt-get -y update 
+  #     sudo apt-get -y install curl
+  #     sudo apt-get install -y unzip
       
-    displayName: 'Install system dependencies'
+  #   displayName: 'Install system dependencies'
 
   # - script: |
       
